@@ -1,0 +1,135 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.Master.cs" Inherits="WebApplication.Layout" %>
+
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title></title>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="<%# ResolveUrl("~/Scripts/jquery-1.12.2.min.js")%>" type="text/javascript"></script>
+
+    <script src="<%# ResolveUrl("~/Scripts/site.js")%>" type="text/javascript"></script>
+
+    <style>
+        *, .dxeBase, .dxeEditAreaSys, .dxeListBoxItem {
+            font-size: small;
+            line-height: inherit;
+        }
+
+        /*.filter .dxeCaption_Moderno {
+            width: 64px !important
+        }*/
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server" enctype="multipart/form-data">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
+        </asp:ScriptManager>
+        <div class="wrapper">
+            <header>
+                <div class="container">
+                    <dx:ASPxPanel ID="TopPanel" runat="server" ClientInstanceName="TopPanel" Width="100%" Collapsible="true">
+                        <SettingsAdaptivity CollapseAtWindowInnerWidth="768" />
+                        <SettingsCollapsing>
+                            <ExpandButton GlyphType="Strips" />
+                        </SettingsCollapsing>
+                        <Styles>
+                            <ExpandBar CssClass="expandBar" />
+                            <ExpandedPanel CssClass="expandedPanel" />
+                        </Styles>
+                        <ExpandBarTemplate>
+                            <div class='title'>
+                                <a  >
+                                   <img class="img-responsive" src="/Content/Images/Logo/hi_logo.png" style="width: 150px; padding: 7px">
+                                </a>
+                            </div> 
+                        </ExpandBarTemplate>
+                        <PanelCollection>
+                            <dx:PanelContent>
+                                <div class='title'>
+                                    <a >
+                                        <img class="img-responsive" src="/Content/Images/Logo/hi_logo.png" style="width: 150px; padding: 7px">
+                                    </a>
+                                </div> 
+                                <div class="panelContent">
+                                    <div class="pull-right">
+                                        <div class="panelItem">
+                                            <dx:ASPxMenu ID="NavMenu" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu">
+                                            </dx:ASPxMenu>
+                                        </div>
+                                        <div class="panelItem" style="padding: 5px 28px 6px 26px;">
+                                            <div class="dxmLite_Moderno dxm-ltr">
+                                                <div class="dxm-main dxm-horizontal navMenu">
+                                                    Welcome <b><%= ((LogicTier.Models.Employee)Session["UserInfo"]).UserName %></b>
+                                                    [<asp:LinkButton runat="server" ID="btLogOut" OnClick="btLogOut_Click" Text="Log Out"></asp:LinkButton>]
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </dx:PanelContent>
+                        </PanelCollection>
+                    </dx:ASPxPanel>
+                </div>
+            </header>
+            <div class="content">
+                <div class="container">
+                    <asp:ContentPlaceHolder runat="server" ID="Content" />
+                </div>
+            </div>
+            <div id="btnBackToTop" class="btnBackToTop hidden">
+                <i class="glyphicon glyphicon-circle-arrow-up"></i>
+            </div>
+            <footer class="stickyFooter">
+                <div class="footerUp"  style="display: none">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>Our Services</h4>
+                                <ul class="list-unstyled latestPosts">
+                                    <%--<li><a href="#">CO-PACKING: We can now procure the necessary materials required for any of our customer’s projects. From full pallet POP displays to small blister sealing jobs, GRSC will source the materials and build your project to exact specifications.</a></li>
+                                    <li><a href="#">VALUE ADDED PACKAGING: High levels of customer service. Ability to customise orders with customised packaging and promotional materials. Accurate, careful packing reduces potential for damage in-transit/returns. Intelligent product routing and put-away.</a></li>
+                                    <li><a href="#">STAFFING: The world of work has become more demanding, unpredictable and complex. Organizations must accelerate innovation and increase productivity to stay ahead. Your success is not driven by technology, infrastructure and capital. Your success is driven by the imagination and determination of people. </a></li>
+
+                                    <li><a href="#">HYGIENE SERVICES: We offer a full range of specialsed hygiene services and products that maintain high standards of hygiene in away from home environments, such as commercial and workplace areas.</a></li>
+                                    <li><a href="#">PAYROLL: Payroll Management is an efficient way of managing all kinds of financial obligations towards your employees. As your business expands, managing timely and accurate disbursal of salaries and other perks become a challenging task.</a></li>
+                                    <li><a href="#">WAREHOUSE SOLUTIONS: We offer several types of Forklifts and specialty attachments for a number of lifting, carrying and placing applications.</a></li>--%>
+                                </ul>
+                            </div>
+                            <div class="col-md-offset-1 col-md-3">
+                                <h4>Contact Us</h4>
+                                <h5 style="color:darkorange;">Hotline: +84 907 792 597</h5>
+                                <ul class="list-unstyled">
+                                    <li>117-119 An Phu Plaza</li>
+                                    <li>Ly Chinh Thang Street</li>
+                                    <li>Ward 07, District 03, HCMC, Vietnam</li>
+                                    <li>Phone: +84 028 730 22 888</li>
+                                    <li>Mail: <a href="mailto:cs@congnghenguon.com.vn">cs@congnghenguon.com.vn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footerDown">
+                    <div class="container">
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <dx:ASPxGlobalEvents runat="server" ClientSideEvents-ControlsInitialized="adjustNavMenu" />
+    </form>
+</body>
+</html>
